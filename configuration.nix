@@ -7,10 +7,8 @@
       	  ./packages.nix
     	];
 
-  	boot.loader.grub.enable = true;
-  	boot.loader.grub.device = "/dev/vda";
-  	boot.loader.grub.useOSProber = true;
-  	boot.kernelPackages = pkgs.linuxPackages_latest;
+  	  boot.loader.limine.enable = true;
+      boot.loader.efi.canTouchEfiVariables = true;
 
   	networking.hostName = "nixos";
 
