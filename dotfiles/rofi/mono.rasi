@@ -1,0 +1,108 @@
+/**
+ * Minimal frosted mono theme — borderless, translucent, monochrome.
+ * Actual frosting comes from the Hyprland layer_rule blur on namespace "rofi".
+ */
+
+* {
+    bg           : rgba(27, 29, 33, 0.55);
+    bg-row-hover : rgba(255, 255, 255, 0.06);
+    fg           : #e8eaedff;
+    fg-dim       : #8a8f98ff;
+
+    background-color:            transparent;
+    text-color:                  @fg;
+
+    font: "JetBrainsMono Nerd Font 12";
+}
+
+window {
+    background-color:            @bg;
+    border:                      0px;
+    border-radius:                20px;
+    width:                        600px;
+    location:                    center;
+    x-offset:                    0px;
+    y-offset:                    0px;
+}
+
+mainbox {
+    background-color:            transparent;
+    children:                    [ "inputbar", "message", "listview" ];
+    spacing:                      10px;
+    padding:                      18px;
+}
+
+inputbar {
+    background-color:            transparent;
+    text-color:                  @fg;
+    border-radius:                0px;
+    padding:                      6px 8px 14px 8px;
+    spacing:                      8px;
+    children:                    [ "prompt", "entry" ];
+}
+
+prompt {
+    background-color:            transparent;
+    text-color:                  @fg-dim;
+    font:                        "JetBrainsMono Nerd Font 12";
+}
+
+entry {
+    background-color:            transparent;
+    text-color:                  @fg;
+    placeholder:                 "Search...";
+    placeholder-color:           @fg-dim;
+    cursor:                       text;
+}
+
+message {
+    background-color:            transparent;
+    text-color:                  @fg;
+    border-radius:                0px;
+    padding:                      8px 12px;
+}
+
+listview {
+    background-color:            transparent;
+    columns:                      1;
+    lines:                        6;
+    spacing:                      2px;
+    cycle:                        true;
+    dynamic:                      true;
+    scrollbar:                    false;
+}
+
+element {
+    background-color:            transparent;
+    text-color:                  @fg;
+    border-radius:                12px;
+    padding:                      10px 12px;
+    spacing:                      10px;
+    orientation:                  horizontal;
+}
+
+element normal.normal {
+    background-color:            transparent;
+    text-color:                  @fg-dim;
+}
+
+element selected.normal {
+    background-color:            @bg-row-hover;
+    text-color:                  @fg;
+    border:                      0px;
+}
+
+element alternate.normal {
+    background-color:            transparent;
+    text-color:                  @fg-dim;
+}
+
+element-icon {
+    size:                         22px;
+    vertical-align:               0.5;
+}
+
+element-text {
+    text-color:                   inherit;
+    vertical-align:               0.5;
+}

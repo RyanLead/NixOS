@@ -1,0 +1,83 @@
+* {
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-size: 14px;
+    font-weight: 500;
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+}
+
+window#waybar {
+    background: rgba(26, 27, 38, 1);
+    border-radius: 0;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+    color: #a9b1d6;
+}
+
+/* Workspaces */
+#workspaces button {
+    padding: 0 8px;
+    color: #565f89;
+    background: transparent;
+    transition: color 200ms cubic-bezier(0.4, 0.0, 0.2, 1.0),
+                font-size 200ms cubic-bezier(0.4, 0.0, 0.2, 1.0);
+}
+
+#workspaces button.empty {
+    color: #565f89;
+}
+
+#workspaces button:not(.empty):not(.active) {
+    color: #a9b1d6;
+}
+
+#workspaces button.active {
+    color: #7aa2f7;
+    font-weight: 900;
+    font-size: 16px;
+}
+
+#workspaces button.urgent {
+    color: #ee2e24;
+}
+
+#workspaces button:hover {
+    color: #bb9af7;
+}
+
+/* Window title */
+#window, #window label {
+    color: #a9b1d6;
+    font-weight: bold;
+    padding: 0 10px;
+}
+
+/* Clock */
+#clock {
+    color: #a9b1d6;
+    font-weight: 600;
+    padding: 0 12px;
+}
+
+/* Right modules shared style */
+#cpu, #memory, #temperature, #network, #pulseaudio, #custom-updates, #tray {
+    padding: 0 10px;
+    color: #a9b1d6;
+}
+
+#temperature.critical {
+    color: #ee2e24;
+}
+
+#pulseaudio.muted {
+    color: #565f89;
+}
+
+#custom-updates {
+    padding: 0 10px;
+    color: #a9b1d6;
+}
+
+#tray {
+    padding: 0 10px;
+}
