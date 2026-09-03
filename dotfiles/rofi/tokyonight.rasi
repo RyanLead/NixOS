@@ -5,9 +5,9 @@
 
 * {
     bg           : rgba(36, 40, 59, 0.72);
-    bg-row-hover : rgba(146, 116, 202, 0.32);
+    bg-row-hover : rgba(187, 154, 247, 0.32);
     fg           : #c0caf5ff;
-    fg-dim       : #7982a9ff;
+    fg-dim       : #545c7eff;
     accent       : #bb9af7ff;
     accent-blue  : #7dcfffff;
 

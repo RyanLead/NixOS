@@ -1,0 +1,7 @@
+/* Tokyo Night Storm — avoids white flash on internal pages */
+@-moz-document url(about:blank), url(about:newtab), url(about:home), url(about:privatebrowsing) {
+  :root {
+    background-color: #24283b !important;
+    color-scheme: dark;
+  }
+}

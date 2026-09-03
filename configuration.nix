@@ -2,13 +2,19 @@
 
   {
   	imports =
-    	  [ 
+    	  [
       	  ./hardware-configuration.nix
       	  ./packages.nix
     	];
 
   	  boot.loader.limine.enable = true;
-      boot.loader.efi.canTouchEfiVariables = true;
+      boot.loader.limine.secureBoot.enable = true;
+      boot.loader.limine.enrollConfig = true;
+      boot.loader.limine.panicOnChecksumMismatch = true;
+      boot.loader.efi.canTouchEfiVariables = false;
+      boot.loader.timeout = null;
+
+  	programs.zsh.enable = true;
 
   	networking.hostName = "nixos";
 
@@ -20,11 +26,12 @@
   	  enable = true;
   	  enable32Bit = true;
   };
+
 	services.openssh.enable = true;
 	programs.steam.enable = true;	
 	programs.coolercontrol.enable = true;
-        programs.nix-ld.enable = true;
-
+  programs.nix-ld.enable = true;
+  programs.gamemode.enable = true;
 
 	services.greetd = {
    	  enable = true;
@@ -47,6 +54,7 @@
     	  description = "ryan";
     	  extraGroups = [ "networkmanager" "wheel" ];
     	  packages = with pkgs; [];
+    	  shell = pkgs.zsh;
   };
 
   	nixpkgs.config.allowUnfree = true;

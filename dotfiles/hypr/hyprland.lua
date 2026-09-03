@@ -1,9 +1,9 @@
 -- COLOURS -- (Tokyo Night, per wixdaq.github.io/Tokyo-Night-Website/ports.html)
 local tokyonight = {
-  background = "rgb(1a1b26)",
-  surface = "rgb(24283b)",
-  foreground = "rgb(a9b1d6)",
-  dim = "rgb(565f89)",
+  background = "rgb(24283b)",
+  surface = "rgb(292e42)",
+  foreground = "rgb(c0caf5)",
+  dim = "rgb(545c7e)",
   faint = "rgb(414868)",
   active = "rgb(7aa2f7)",
   red = "rgb(f7768e)",
@@ -11,8 +11,8 @@ local tokyonight = {
 
 -- MONITORS --
 hl.monitor({
-  output = "",
-  mode = "2560x1440",
+  output = "DP-1",
+  mode = "3840x2160@240",
   position = "0x0",
   scale = "1",
 })
@@ -23,12 +23,19 @@ local menu = "rofi -show drun"
 
 -- AUTOSTART --
 hl.on("hyprland.start", function()
+  hl.dispatch(hl.dsp.exec_cmd(
+    "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP HYPRLAND_INSTANCE_SIGNATURE"))
+  hl.dispatch(hl.dsp.exec_cmd("systemctl --user start graphical-session.target"))
   hl.dispatch(hl.dsp.exec_cmd("waybar"))
+  hl.dispatch(hl.dsp.exec_cmd("awww-daemon"))
+  hl.dispatch(hl.dsp.exec_cmd(
+    "sleep 1 && awww img /home/ryan/wallpapers/totoro.png"))
 end)
 
 -- ENVIRONMENT VARIABLES --
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
+hl.env("XCURSOR_THEME", "Adwaita")
 
 -- PERMISSIONS --
 hl.config({
@@ -40,9 +47,9 @@ hl.config({
 -- LOOK AND FEEL --
 hl.config({
   general = {
-    gaps_in = 2,
-    gaps_out = 2,
-    border_size = 0,
+    gaps_in = 0,
+    gaps_out = 0,
+    border_size = 3,
 
     col = {
       active_border = "rgba(7aa2f755)",
@@ -71,17 +78,17 @@ hl.config({
 
 hl.config({
   decoration = {
-    rounding = 0,
-    active_opacity = 0.97,
-    inactive_opacity = 0.90,
+    rounding = 10,
+    active_opacity = 1,
+    inactive_opacity = 1,
     shadow = {
       color = "rgba(00000099)",
       color_inactive = "rgba(00000055)",
     },
     blur = {
       enabled = true,
-      size = 8,
-      passes = 3,
+      size = 6,
+      passes = 2,
       vibrancy = 0.15,
       new_optimizations = true,
       popups = true,
@@ -145,10 +152,6 @@ hl.config({
 hl.config({
   input = {
     kb_layout = "us",
-    kb_variant = "",
-    kb_model = "",
-    kb_options = "",
-    kb_rules = "",
 
     follow_mouse = 1,
     sensitivity = -0.8,

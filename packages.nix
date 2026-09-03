@@ -3,17 +3,24 @@
 {
 
 environment.systemPackages = with pkgs; [
-neovim
-vim
-wget
-kitty
-git
-discord
-gcc
-waybar
-fastfetch
-protonup-qt
+  # base
+  wget
+  git
+  gcc
 
+  # desktop
+  kitty
+  waybar
+  adwaita-icon-theme
+  awww
+
+  # gaming
+  protonup-qt
+
+  # utilities
+  fastfetch
+  claude-code
+  discord-ptb
 ];
 
 }

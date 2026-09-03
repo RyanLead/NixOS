@@ -1,0 +1,65 @@
+/* Tokyo Night Storm — matches kitty's current-theme.conf */
+:root {
+  --tn-bg: #24283b;
+  --tn-bg-dark: #1d202f;
+  --tn-bg-highlight: #292e42;
+  --tn-fg: #c0caf5;
+  --tn-fg-dim: #a9b1d6;
+  --tn-dim: #545c7e;
+  --tn-blue: #7aa2f7;
+  --tn-magenta: #bb9af7;
+}
+
+#navigator-toolbox,
+#titlebar,
+#nav-bar,
+#TabsToolbar,
+#PersonalToolbar {
+  background-color: var(--tn-bg-dark) !important;
+  color: var(--tn-fg) !important;
+  border-color: var(--tn-bg-highlight) !important;
+  box-shadow: none !important;
+}
+
+.tabbrowser-tab {
+  color: var(--tn-dim) !important;
+}
+
+.tabbrowser-tab[selected="true"] {
+  color: var(--tn-fg) !important;
+}
+
+.tab-background {
+  background-color: var(--tn-bg-highlight) !important;
+  border-radius: 6px !important;
+}
+
+.tab-background[selected="true"] {
+  background-color: var(--tn-bg) !important;
+  box-shadow: inset 0 -2px 0 0 var(--tn-blue) !important;
+}
+
+#urlbar,
+#searchbar {
+  background-color: var(--tn-bg-highlight) !important;
+  color: var(--tn-fg) !important;
+  border-radius: 8px !important;
+}
+
+#urlbar[focused="true"] {
+  box-shadow: 0 0 0 1px var(--tn-blue) !important;
+}
+
+.urlbar-input,
+#urlbar-container,
+#identity-box {
+  color: var(--tn-fg) !important;
+}
+
+toolbarbutton .toolbarbutton-icon {
+  fill: var(--tn-fg-dim) !important;
+}
+
+#PersonalToolbar {
+  border-top: 1px solid var(--tn-bg-highlight) !important;
+}
