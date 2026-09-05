@@ -11,7 +11,7 @@ local tokyonight = {
 
 -- MONITORS --
 hl.monitor({
-  output = "DP-1",
+  output = "DP-2",
   mode = "3840x2160@240",
   position = "0x0",
   scale = "1",
@@ -240,7 +240,7 @@ hl.window_rule({
 
 hl.window_rule({
   name = "discord-workspace",
-  match = { class = "^(discord)$" },
+  match = { class = "^(discord-ptb)$" },
 
   workspace = "5 silent",
 })

@@ -14,6 +14,9 @@
       boot.loader.efi.canTouchEfiVariables = false;
       boot.loader.timeout = null;
 
+      boot.kernelModules = [ "nct6775" ];
+      boot.kernelParams = [ "amdgpu.ppfeaturemask=0xffffffff" ];
+
   	programs.zsh.enable = true;
 
   	networking.hostName = "nixos";
@@ -26,11 +29,18 @@
   	  enable = true;
   	  enable32Bit = true;
   };
+    
+    environment.variables.AMD_VULKAN_ICD = "RADV";
+
+    environment.systemPackages = with pkgs; [ lact ];
+      systemd.packages = with pkgs; [ lact ];
+      systemd.services.lactd.wantedBy = ["multi-user.target"];
+
 
 	services.openssh.enable = true;
 	programs.steam.enable = true;	
-	programs.coolercontrol.enable = true;
   programs.nix-ld.enable = true;
+  programs.coolercontrol.enable = true;
   programs.gamemode.enable = true;
 
 	services.greetd = {
@@ -40,8 +50,9 @@
    	  command = "${pkgs.hyprland}/bin/Hyprland";
    	  user = "ryan";
    	  };
-	};
+	  };
   };
+
 	security.rtkit.enable = true;
 	services.pipewire = {
 	  enable = true;

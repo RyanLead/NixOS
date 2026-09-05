@@ -60,7 +60,7 @@ window#waybar {
 }
 
 /* Right modules shared style */
-#cpu, #memory, #temperature, #network, #pulseaudio, #custom-updates, #tray {
+#cpu, #memory, #temperature, #network, #pulseaudio, #tray {
     padding: 0 10px;
     color: #c0caf5;
 }
