@@ -38,12 +38,18 @@
       source = ./dotfiles/waybar;
       recursive = true;
     };
+
+    xdg.configFile."fastfetch" = {
+      source = ./dotfiles/fastfetch;
+      recursive = true;
+    };
     
     programs.git = {
      enable = true;
      settings = {
        user.email = "ryanleadbitter@proton.me";
        user.name = "RyanLead";
+       credential.helper = "store";
      };
     };
 

@@ -3,16 +3,24 @@
 {
   programs.zsh = {
     enable = true;
-    enableCompletion = true;
+    enableCompletion = false;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
 
     shellAliases = {
       btw = "echo it fucking works btw";
       rebuild = "sudo nixos-rebuild switch --flake /etc/nixos#nixos";
+      spotify = "spotify_player";
     };
 
     initContent = ''
+      autoload -Uz compinit
+      if [[ -n ''${ZDOTDIR:-$HOME}/.zcompdump(#qN.mh+24) ]]; then
+        compinit
+      else
+        compinit -C
+      fi
+
       fastfetch
 
       # Shift+Left / Shift+Right jump by word
